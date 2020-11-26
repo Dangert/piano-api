@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
-const { Client } = require('pg')();
+const { Client } = require('pg');
 
 const signup = require('./controllers/signup');
 const signin = require('./controllers/signin');
