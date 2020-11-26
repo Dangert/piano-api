@@ -10,7 +10,7 @@ const users = require('./controllers/users');
 
 const app = express();
 const cn = {
-    connectionString: 'process.env.DATABASE_URL',
+    connectionString: process.env.DATABASE_URL,
     ssl: true
 };
 const db = pgp(cn);
@@ -51,7 +51,7 @@ app.get('/users/exist/:username', users.userExist(db));
 
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log("app is running");
+  console.log("app is running on port " + process.env.PORT);
 })
 
 
