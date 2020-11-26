@@ -17,7 +17,7 @@ const handleSignup = (db, bcrypt) => (req, res) => {
         res.json(user);
       })
       .catch(error => {
-          res.status(400).json('unable to sign up');
+          res.status(400).json(error);
       });
   })
 }
