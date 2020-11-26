@@ -10,10 +10,12 @@ const users = require('./controllers/users');
 
 const app = express();
 const cn = {
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
+    connectionString: process.env.DATABASE_URL
 };
 const db = pgp(cn);
+pgp.pg.defaults.ssl = {
+  rejectUnauthorized: false
+}
 app.use(bodyParser.json());
 app.use(cors());
 
