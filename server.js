@@ -44,7 +44,7 @@ app.get('/users/top/:number', users.getTopUsersRecords(db));
 app.get('/users/exist/:username', users.userExist(db));
 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("app is running");
 })
 
