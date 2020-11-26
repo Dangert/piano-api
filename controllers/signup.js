@@ -1,6 +1,8 @@
 const handleSignup = (db, bcrypt) => (req, res) => {
   saltRounds = 10; //bcrypt value
   const { username, password } = req.body;
+  res.json("dummy response");
+  return;
   if (!username || !password) {
     return res.status(400).json('incorrect data submission');
   }
