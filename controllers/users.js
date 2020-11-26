@@ -1,6 +1,6 @@
 const addGameToUser = (db) => async (req, res) => {
   const { user_id, score } = req.body;
-  if (!user_id || score===null) {
+  if (!user_id || score===undefined) {
     return res.status(400).json('incorrect data submission');
   }
   await db.none("UPDATE users SET total_score=total_score+$1, total_games=total_games+1 WHERE id=$2",
