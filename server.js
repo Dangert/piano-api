@@ -2,26 +2,23 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
-const { Client } = require('pg');
+const pgp = require('pg-promise')();
 
 const signup = require('./controllers/signup');
 const signin = require('./controllers/signin');
 const users = require('./controllers/users');
 
 const app = express();
-
-const db = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
-
+const cn = {
+    connectionString: 'process.env.DATABASE_URL',
+    ssl: true
+};
+const db = pgp(cn);
 app.use(bodyParser.json());
 app.use(cors());
 
 
-app.get('/', (req, res) => {res.send('app is running')});
+app.get('/', (req, res) => {res.send('app is running')})
 
 /*{
   username: "",
