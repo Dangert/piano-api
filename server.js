@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
+app.get('/', (req, res) => {res.send('app is running')});
+
 /*{
   username: "",
   password: ""
