@@ -2,14 +2,21 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
-const pgp = require('pg-promise')();
+const { Client } = require('pg')();
 
 const signup = require('./controllers/signup');
 const signin = require('./controllers/signin');
 const users = require('./controllers/users');
 
 const app = express();
-const db = pgp('postgres://dng2:dng2@localhost:5433/piano');
+
+const db = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
 app.use(bodyParser.json());
 app.use(cors());
 
