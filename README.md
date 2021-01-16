@@ -8,14 +8,18 @@ A cool game for those who want to challenge their relative pitch!\nEach round, t
 
 - `login` 
     ```
-    username | hash
-    ---------+-----
+    id | hash | username
+    ---+------+---------
+    
+    CREATE TABLE login (id serial PRIMARY KEY, hash varchar(100) NOT NULL, username text UNIQUE NOT NULL);
     ```
 
 - `users`
   ```
-  username | joined | total_score | total_games
-  ---------+--------+-------------+------------
+  id | username | joined | total_score | total_games
+  ---+----------+--------+-------------+------------
+  
+  CREATE TABLE users (id serial PRIMARY KEY, username text UNIQUE NOT NULL, joined TIMESTAMP NOT NULL, total_score INT DEFAULT 0, total_games INT DEFAULT 0);
   ```
 
 ## Run locally
