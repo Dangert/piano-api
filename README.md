@@ -6,7 +6,7 @@ A cool game for those who want to challenge their relative pitch!\nEach round, t
 
 ## Database Tables
 
-- `login` - holds the login details 
+- `login` 
     ```
     username | hash
     ---------+-----
