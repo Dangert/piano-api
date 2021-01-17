@@ -22,8 +22,8 @@ A cool game for those who want to challenge their relative pitch!\nEach round, t
   CREATE TABLE users (id serial PRIMARY KEY, username text UNIQUE NOT NULL, joined TIMESTAMP NOT NULL, total_score INT DEFAULT 0, total_games INT DEFAULT 0);
   ```
 
-## Run locally
+## Run Locally
 
-- Clone repository and `cd` into local directory
+- clone repository and `cd` into local directory
 - run `npm install`
 - run `npm start`
